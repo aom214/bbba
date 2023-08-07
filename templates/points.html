@@ -1,0 +1,124 @@
+{% extends 'base.html' %}
+{% block style %}
+<link rel="stylesheet" href="/static/points/css/pointstable.css">
+<style>
+   .header-area::before{
+      content:"";
+      position:absolute;
+      top:0px;
+      left:0px;
+      background: black;
+      height:100px;
+      width:100%;
+      min-width:720px;
+      background-repeat:no-repeat;
+      background-size:cover;
+      z-index:-1;
+   }
+   li{
+      background-color: transparent;}
+
+
+   .content-info::before{
+      content:"";
+      position:absolute;
+      top:0px;
+      left:0px;
+      background: url('https://free4kwallpapers.com/uploads/originals/2019/04/23/hogwarts-castle---universal-orlando---wallpaper.jpg');
+      height:100vh;
+      width:100%;
+      min-width:720px;
+      background-repeat:no-repeat;
+      background-size:cover;
+      z-index:-1;
+   }
+   table {
+      border: 1px solid black;
+  }
+  table tr td {
+   padding: 10px 20px;
+   border: 1px solid black;
+}
+table thead tr th {
+   padding: 20px;
+   border: 1px solid black;
+   color: #000;
+}
+table tr td img {
+
+   border: 1px solid black;
+}
+   .text-center{
+      color:#261e5c;
+   }
+   .content-info{
+      background-color:transparent;
+      position:relative;
+   }
+   tr{
+      background:blue;
+   }
+   th{
+      background:#efc20a;
+      font-size:18px;
+   }
+   td{
+      background:#52b77dc4;
+      color:black;
+      font-size:18px;
+   }
+</style>
+{% endblock style %}
+{% block title %}Points Table{% endblock title %}
+{% block body %}
+
+
+
+
+<section class="content-info">
+    <div class="container paddings-mini">
+       <div class="row">
+          <div class="col-lg-12">
+             <table class="table-striped table-responsive table-hover result-point">
+                <thead class="point-table-head">
+                   <tr>
+                      <th class="text-left">TEAM</th>
+                      <th class="text-left">RANK</th>
+                      <th class="text-center">P</th>
+                      <th class="text-center">W</th>
+                      <th class="text-center">D</th>
+                      <th class="text-center">L</th>
+                      <th class="text-center">GS</th>
+                      <th class="text-center">GA</th>
+                      <th class="text-center">+/-</th>
+                      <th class="text-center">PTS</th>
+                   </tr>
+                </thead>
+                <tbody class="text-center">
+                   {% for i in sorted %}
+                    <tr>
+                     <td class="text-left">
+                        <img src="/media/{{i.team_image}}" alt="Colombia"><span>{{i.team}}</span>
+                     </td>
+                     <td>{{forloop.counter}}</td>
+                     <td>{{i.MATCHES_PLAYED}}</td>
+                     <td>{{i.MATCHES_WON}}</td>
+                     <td>{{i.MATCHES_DRAW}}</td>
+                     <td>{{i.loss}}</td>
+                     <td>{{i.TOTAL_GOALS_SCORED}}</td>
+                     <td>{{i.TOTAL_GOALS_AGAINST}}</td>
+                     <td>{{i.plusminus}}</td>
+                     <td>{{i.poin}}</td>
+                  </tr>
+                  
+                   {% endfor %}
+                   
+                   
+         
+                </tbody>
+             </table>
+          </div>
+       </div>
+    </div>
+ </section>
+{% endblock body %}

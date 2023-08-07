@@ -1,0 +1,8 @@
+{
+    "editor.suggest.snippetsPreventQuickSuggestions": true,
+    "emmet.useInlineCompletions": true,
+    "editor.autoClosingOvertype": "always",
+    "editor.autoClosingDelete": "always",
+    "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+    "liveServer.settings.port": 5501
+}

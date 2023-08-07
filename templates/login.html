@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animated Login From</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link rel="stylesheet" href="/static/login/login.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  </head>
+  <style>
+    #login_button {
+    position: relative;
+    width: 300px;
+    display: flex;
+    height: 40px;
+    justify-content: center;
+    transition: 1s;
+    margin-top: 70px;
+}
+body{
+  background-color:#0c1022
+}
+  </style>
+  <body>
+    <div class="msg" style="position:absolute;top:0px;left:0px;width:100%">
+      {% if messages %}  
+      {% for message in messages %}
+        <div {% if message.tags %} class="alert alert-warning alert-dismissible fade show {{ message.tags }}"role="alert"{% endif %}>
+          {{ message }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      {% endfor %}
+    {% endif %}
+    </div>
+    <div class="login_form_container">
+      <div class="login_form">
+      <form class="login100-form validate-form" action="" method="post" id="lgin">
+          {% csrf_token %}
+        <h2>Login</h2>
+        <div class="input_group">
+          <i class="fa fa-user"></i>
+          <input 
+            type="text"
+            placeholder="Username"
+            class="input_text"
+            id="username" name="userr"
+            autocomplete="off"
+          />
+        </div>
+        <div class="input_group">
+          <i class="fa fa-unlock-alt"></i>
+          <input
+            type="password" id="password" name="pass"
+            placeholder="Password"
+            class="input_text"
+            autocomplete="off"
+          />
+        </div>
+        <div class="button_group" id="login_button" onclick="sub()">
+          <input style="width: 160px;
+          background: #0c1022;
+          color: #00ccff;
+          font-size: 20px;
+          border-radius: 20px;
+          border-color: #00ccff;" type="submit" value="Login">
+        </div>
+      </form>
+        <div class="fotter">
+          <a>Don't have an account?</a>
+          <a onclick="sign()">Sign Up</a>
+        </div>
+      </div>
+    </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="login.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  </body>
+</html>
+    <script>
+    function sign() {
+      window.location.href = "/sign";
+    }
+
+  </script>
+
+  </body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="stylesheet" href="static/index/css/indexpagestyle.css">   {% comment %}  for indexpage css {% endcomment %}
+  <link rel="stylesheet" href="static/index/css/backgroundstyle.css">{% comment %}  for background css {% endcomment %}
+  <link rel="stylesheet" href="static/index/css/upcomingstyle.css">{% comment %}  
+  for background css {% endcomment %}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+</head>
+<body>
+  {% comment %} code for navbar {% endcomment %}
+  <nav class="navb">
+    <div class="cont">
+      <div class="left" id="left">
+        <div class="lines" id="l">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+        <div class="items" id="i">
+          <div class="item" id="item-1">
+            <a href="#">Book Ticket</a>
+          </div>
+          <div class="item" id="item-2">
+            <a href="#">Play Quiz</a>
+          </div>
+        </div>
+      </div>
+      <div class="center">
+        <img src="static/images/logo.webp" alt="logo">
+      </div>
+      <div class="right">
+        {% if user.is_authenticated %}
+        <div class="button">
+          <button type="button" class="btn btn-primary" onclick="myfunction()" id="Logoutt">LOGOUT</button>
+        </div>
+        <div class="dropdown">
+          <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+            <strong>mdo</strong>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+            <li><a class="dropdown-item" href="#">New project...</a></li>
+            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Sign out</a></li>
+          </ul>
+        </div>
+        {% else %}
+        <div class="button">
+          <button type="button" class="btn btn-primary" onclick="my()"  id="sign up" >Sign Up</button>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </nav>
+{% comment %} completed navabr  {% endcomment %}
+  {% if messages %}  
+  {% for message in messages %}
+    <div {% if message.tags %} class="alert alert-warning alert-dismissible fade show {{ message.tags }}" style="position:absolute;width:100%;" role="alert"{% endif %}>
+      {{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  {% endfor %}
+{% endif %}
+
+<div class="concon">
+  <div class="con">
+    <div class="part1">
+        <div class="part1items" id="part1item-1">
+            <div class="part1img">
+                <img src="https://cdn.hswstatic.com/gif/play/968217d2-883e-4483-825b-f543e0cef030-1920-1080.jpg" alt="" srcset="">
+            </div>
+        </div>
+        <div class="part1items" id="part1item-2">
+            <div class="write">
+                <h1>WELCOME</h1>
+                <h3>To the</h3>
+                <h2>QUIDITECH SPORTS</h2>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<div class="looking">
+  <div class="text">
+      <h1>What Are You Looking For ?</h1>
+  </div>
+  <div class="buttons">
+      <div class="button"><button type="button" class="btns" id="teams" ><span>All Teams!</span></button></div>
+      <div class="button"><button class="btns" type="button" id="pointstable"><span>Points Table!</span></div>
+      <div class="button"><button class="btns" type="button" id="matches"><span>Matches!</span></div>
+      <div class="button"><button class="btns" type="button" id="shop"><span>SHOP!</span></div>
+  </div>
+  <br>
+</div>
+<div>
+{% comment %} for upcoming matches {% endcomment %}
+
+
+<div class="textt">
+  UPCOMING MATCHES
+</div>
+<div class="upcomingslider">
+<i id="leftslider" class="fa-solid fa-angle-left"></i>
+  <div class="wrapper">
+    <ul class="carousel">
+      {% for i in UPCOMING%}
+      <div class="card" style="width: 18rem;">
+        <img src="/media/{{i.match_image}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{i.team1}} VS {{i.team2}}</h5>
+          <br>
+          <div class="time">
+            <p style="font-weight:bold;color:red"> DATE:-</p>
+            <p>{{i.match_date}}</p>
+          </div>
+          <div class="time">
+            <p style="font-weight:bold;color:red"> TIME:-</p>
+            <p>{{i.match_time}}</p>
+          </div>
+          <div class="time">
+            <p style="font-weight:bold;color:red"> VENUE:-</p>
+            <p>{{i.match_venue}}</p>
+          </div>
+          <div class="book">
+            <a href="#" class="btn btn-success">BOOK TICKETS</a>
+          <a href="#" class="btn btn-primary">View Desc</a>
+          </div>
+        </div>
+      </div>
+      {%endfor%}
+    </ul>
+  </div>
+<i id="rightslider" class="fa-solid fa-angle-right"></i>
+</div>
+
+
+
+<!-- FOR STARS ANIMATION -->
+  <section class="wrapper">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>
+</section>
+<!-- COMPLETED -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+<script src="static/index/javascript/upcomingscript.js"></script>
+<script src="static/index/javascript/indexpagescript.js"></script>
+<script src="static/index/javascript/script.js" defer></script>
+</body>
+</html>

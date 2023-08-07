@@ -1,0 +1,262 @@
+{% extends 'base.html' %}
+{% block title %}matches{% endblock title %}
+{% block style %}
+<style>
+    .cont{
+        background-color:black;
+        z-index:2;
+    }
+    *{
+        background-color: 
+    }
+    .imgtop{
+        background: 
+        z-index:1;
+        background-repeat: no-repeat;
+    height: 500px;
+    background-size: cover;
+    background-repeat:no-repeat;
+        width:100%;
+    }
+    .center img{
+        background-color:black;
+    }
+    .left{
+        background-color:black;
+    }
+    .item{
+        background-color:black;
+    }
+    .item a{
+        background-color:black;
+    }
+    .items{
+        background-color:black;
+    }
+    .teamscontainer{
+        width: 100%;
+float: left;
+display: flex;
+flex-flow: row wrap;
+justify-content: center;
+background: transparent;
+margin-top:90px;
+}
+        
+    
+    .teamco{
+        background: transparent;
+        display:flex;
+        flex-direction:column;
+        height:360px;
+        width:250px;
+        margin:40px;
+        color:white;
+        text-align:center;
+    }
+    .teamco img{
+        background:transparent;
+        height:300px;
+        width:250px;
+    }
+    .teamco h2{
+        background-color:white;
+        color:black;
+        margin-top:-15px;
+        height:54px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+    }
+    .lo img{
+        width:300px;
+        background: transparent;
+        height:150px;
+    }
+    .lo{
+        background: transparent;
+    }
+    .harrylogo{
+        width:100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: -329px;
+    background: transparent;
+    }
+    .harrylogo{
+        width:100%;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+    }
+    .harrylogo img{
+        width:296px;
+        height:214px;
+        background:transparent;
+    }
+    body::before{
+        content:"";
+        position:absolute;
+        top:0px;
+        left:0px;
+        height:100vh;
+        width:100%;
+        background: ;
+        z-index:-1;
+        background-size:cover;
+        background-repeat:no-repeat;
+        opacity:0.75;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        color: #1e1e1e;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        font-size: 22px;
+        font-weight: 700;
+    }
+    .teamco h2 {
+        background-color: white;
+        color: black;
+        margin-top: -30px;
+        height: 44px;
+        color: #cfdb16e0;
+        background-color:#032150;
+        display: flex;
+        align-items: center;
+        border-bottom-left-radius: 18px;
+        border-bottom-right-radius: 18px;
+        justify-content: center;
+    }
+
+    .header-area .main-nav ul.nav {
+        border-radius: 0px 0px 25px 25px;
+        flex-basis: 100%;
+        background-color: black;
+        margin-top: 30px;
+        justify-content: right;
+        -webkit-transition: all 0.3s ease 0s;
+        -moz-transition: all 0.3s ease 0s;
+        -o-transition: all 0.3s ease 0s;
+        transition: all 0.3s ease 0s;
+        position: relative;
+        z-index: 999;
+    }
+    .teamco img {
+        background: transparent;
+        height: 300px;
+        background-color: black;
+        width: 250px;
+    }
+    .header-area .main-nav ul.nav {
+        border-radius: 0px 0px 25px 25px;
+        flex-basis: 100%;
+        background-color: transparent;
+        margin-top: 30px;
+        justify-content: right;
+        -webkit-transition: all 0.3s ease 0s;
+        -moz-transition: all 0.3s ease 0s;
+        -o-transition: all 0.3s ease 0s;
+        transition: all 0.3s ease 0s;
+        position: relative;
+        z-index: 999;
+    }
+    @media(max-width:850px){
+        #menu a {
+            margin-top: 6px;
+            margin-right: 131px;}
+    }
+
+    @media(max-width:830px){
+        *{
+            background-color:transparent;
+        }
+        #menu a {
+            margin-top: -2px;
+            margin-right: 131px;
+        }
+        .header-area .main-nav ul.nav {
+    border-radius: 0px 0px 25px 25px;
+    flex-basis: 100%;
+    background-color: transparent;
+    margin-top: 30px;
+    justify-content: right;
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    position: relative;
+    z-index: 999;
+}
+        .teamscontainer::before{
+            content:"";
+            position:absolute;
+            top:0px;
+            left:0px;
+            height:100vh;
+            width:100%;
+            background: url('https://images.ctfassets.net/usf1vwtuqyxm/71J6YPxNauhFABbjHpGluJ/631bd6980b0a430d5b476ef331abb2b5/release_1_hogwarts.png');
+            z-index:-1;
+            background-size:cover;
+            background-repeat:no-repeat;
+            opacity:0.8;
+        }
+        
+    }
+    .card{
+ 
+
+        background: #0F2027;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #2C5364, #203A43, #0F2027);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #2C5364, #203A43, #0F2027); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        
+            
+          }
+       
+</style>{% endblock style %}
+{% block body %}    
+    <div class="teamscontainer">
+        {% for i in match %}
+        <div style="width:360px;margin:20px" class="card" id="{{i.team1}}" id="{{i.team2}}" id="{{i.match_unique_name}}">
+            <div style="height:310px;margin:0px;overflow:hidden">
+              <img style="height:310px"src="/media/{{i.match_image}}" class="card-img-top" alt="...">
+            </div>
+            <div class="card-body">
+              <h5 style="text-align:center; color:" class="card-title">{{i.team1}} VS {{i.team2}}</h5>
+              <br>
+              <div class="book">
+                <a href="/bookticket/{{i.id}}/" class="btn btn-success">BOOK TICKETS</a>
+              <a href="/bookticket/{{i.id}}/" class="btn btn-primary">View Desc</a>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+    </div>
+    <br>
+    <br>
+    <br>
+    <div class="teamscontainer">
+        {% for j in allprev %}
+        <div style="width:360px;margin:20px" class="card"  >
+            <div style="height:310px;;overflow:hidden">
+              <img style="height:320px;"src="/media/{{j.match_image}}" class="card-img-top" alt="...">
+            </div>
+            <div class="card-body">
+              <h5 style="text-align:center" class="card-title">{{j.team1}} VS {{j.team2}}</h5>
+              <br>
+              <div class="book" style="justify-content:center">
+              <a href="/{{j.id}}/desc/" class="btn btn-primary" style="width: 50%;min-width: 100px;">View Desc</a>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+    </div>
+    
+{% endblock body %}
+{% block script %}
+<script>
+    function team(a){
+        window.location.href = a;
+    }
+</script>
+{% endblock script %}

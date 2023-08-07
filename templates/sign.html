@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animated Login From</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link rel="stylesheet" href="/static/login/login.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  </head>
+  <style>
+    *{
+      background-color:#0c1022
+    }
+    #login_button {
+    position: relative;
+    width: 300px;
+    display: flex;
+    height: 40px;
+    justify-content: center;
+    transition: 1s;
+    margin-top: 70px;
+}
+.login_form {
+  position: absolute;
+  content: '';
+  top:0px;
+  background-color: #0c1022;
+  border-radius: 50px 5px;
+  inset: 5px;
+  padding: 15px 40px;
+  z-index: 10;
+  color: #00ccff;
+}
+body{
+  background-color:#0c1022
+}
+#login_button {
+  position: relative;
+  width: 300px;
+  display: flex;
+  height: 40px;
+  justify-content: center;
+  transition: 1s;
+  margin-top: 70px;
+}
+body{
+background-color:#0c1022
+}
+  </style>
+  <body>
+<div class="msg" style="position:absolute;top:0px;left:0px;width:100%">
+  {% if messages %}  
+  {% for message in messages %}
+    <div {% if message.tags %} class="alert alert-warning alert-dismissible fade show {{ message.tags }}"role="alert"{% endif %}>
+      {{ message }}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  {% endfor %}
+{% endif %}
+</div>
+    <div class="login_form_container" style="background-color:#0c1022" >
+      <div class="login_form" style="background-color:#0c1022" >
+      <form class="login100-form validate-form" style="background-color:#0c1022" action="" method="post" id="lgin">
+          {% csrf_token %}
+        <h2>Sign Up</h2>
+        <div class="input_group">
+          <i class="fa fa-user"></i>
+          <input
+            type="text"
+            id="name" name="name" required
+            placeholder="Username"
+            class="input_text"
+            autocomplete="off"
+          />
+        </div>
+        <div class="input_group">
+          <i class="fa fa-user"></i>
+          <input
+            placeholder="E-mail"
+            class="input_text"
+            type="email" id="email" name="email" required
+            autocomplete="off"
+          />
+        </div>
+        <div class="input_group">
+          <i class="fa fa-unlock-alt"></i>
+          <input
+            type="password" id="password" name="password" required
+            placeholder="Password"
+            class="input_text"
+            autocomplete="off"
+          />
+        </div>
+        <div class="input_group">
+          <i class="fa fa-unlock-alt"></i>
+          <input
+            type="password" id="confirm-password" name="confirm-password" required
+            placeholder="Confirm Password"
+            class="input_text"
+            autocomplete="off"
+          />
+        </div>
+        <div class="button_group" id="login_button" onclick="sub()">
+          <input style="width: 160px;
+          background: #0c1022;
+          color: #00ccff;
+          font-size: 20px;
+          border-radius: 20px;
+          border-color: #00ccff;" type="submit" value="Sign Up">
+          <button style="color: #00ccff;
+          border-radius: 27px;
+          /* padding: 10px; */
+          padding-left: 14px;
+          padding-right: 14px;
+          text-align: center;
+          border-color: #00ccff;" onclick="l()">Go To Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="login.js"></script>
+    <script>
+    function sign() {
+      window.location.href = "/sign";
+    }
+    function l(){
+      window.location.href = "/login";
+    }
+
+  </script>
+
+  </body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>book tickets</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/productpage/css/productpage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/static/assets/css/animate.css">
+  </head>
+  <style>
+    .card{
+        display:flex;
+        height:1000px;
+        flex-direction:column;
+    }
+    .product-title {
+        font-size: 3rem;
+        text-transform: capitalize;
+        font-weight: 700;
+        position: relative;
+        color: #12263a;
+        margin: 1rem 0;
+        display: none;
+    }
+    body::before {
+        content: "";
+        width: 100%;
+        opacity: 0.8;
+        position: absolute;
+        top: 0px;
+        height:1200px;
+        left: 0px;
+        z-index: -1;
+        background: url(https://images8.alphacoders.com/110/1102284.jpg);
+    }
+    .card-wrapper{
+      padding:0px;
+    }
+    .card {
+      display: flex;
+      height: 1000px;
+      max-width: 1000px;
+      width: 70%;
+      flex-direction: column;
+  }
+  .img-showcase img {
+    min-width: 70%;
+}
+  @media (max-width:1000px){
+    .card {
+  display: flex;
+  height: 1000px;
+  max-width: 1000px;
+  width: 100%;
+  flex-direction: column;
+  box-sizing:border-box;
+}
+}
+@media (max-width:770px){
+  .img-showcase img {
+    width:100%;
+}
+}
+  </style>
+  <body>
+      <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+    <div class = "card-wrapper" style="height:auto">
+      <div class = "card">
+        <!-- card left -->
+        <div class = "product-imgs">
+          <div class = "img-display">
+            <div class = "img-showcase">
+              <img src = "/media/{{match.0.match_image}}" alt = "shoe image">
+            </div>
+          </div>
+        </div>
+        <!-- card right -->
+        <div class = "product-content"style=" color:white">
+          <div>
+            <h2 style="font-size:28px;">{{match.0.team1}} VS {{match.0.team2}}</h2>
+          </div>
+          <div class = "product-price">
+            <p class = "new-price" style="font-size:20px">{{match.0.match_won_team}} won the match</p>
+          </div>
+          <div class = "product-price">
+            <p class = "new-price" style="font-size:20px">Match Venue:- <span style="color:white">{{match.0.match_venue}}</span></p>
+          </div>
+          <div class = "product-price">
+            <p class = "new-price" style="font-size:20px">Match Time:- <span style="color:white">{{match.0.match_time}}IST</span></p>
+          </div>
+          <div class = "product-price">
+            <p class = "new-price" style="font-size:20px"><span style="color:white">{{match.0.match_desc}}</span></p>
+          </div>
+          <div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+
+function toca(){
+  alert("Ticket added to ticket counter");
+}
+function ca(){
+  window.location.href="/ticketcounter"
+}
+    </script>
+    <script src="/static/productpage/javascript/productpage.js"></script>
+  </body>
+</html>

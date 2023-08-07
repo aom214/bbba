@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="/static/register/css/register.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  </head>
+  <style>
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgb(130, 106, 251);
+  }
+  .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    max-width: 900px;
+}
+.container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+  max-width: 900px;
+}
+  </style>
+  <body>
+
+
+    <div class="msg" style="position:absolute;top:0px;left:0px;width:100%">
+      {% if messages %}  
+      {% for message in messages %}
+        <div style="
+          position: absolute;
+          top: 0px;
+          z-index: 1;
+          width:100%;
+      "{% if message.tags %} class="alert alert-warning alert-dismissible fade show {{ message.tags }}"role="alert"{% endif %}>
+          {{ message }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      {% endfor %}
+    {% endif %}
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section class="container">
+      <header>REGISTER YOUR TEAM FOR MATCHES</header>
+      <form action="" class="form" id="form" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="input-box">
+          <label>TEAM NAME</label>
+          <input type="text" placeholder="Team name" id="team-name" name="team-name" required />
+        </div>
+        <div class="input-box">
+            <label>TEAM HOME</label>
+            <input type="text" placeholder="Enter home venue name" id="team-home" name="team-home" required />
+          </div>
+
+          <div class="input-box">
+            <label>TEAM CAPTAIN</label>
+            <input type="text" placeholder="Team Captain name" id="team-captain" name="team-captain" required />
+          </div>
+          <div class="input-box">
+            <label>TEAM coach</label>
+            <input type="text" placeholder="Enter Coach name" id="team-coach" name="team-coach" required />
+          </div>
+          <div class="input-box">
+            <label>TEAM Owner</label>
+            <input type="text" placeholder="Enter Coach name" id="team-owner" name="team-owner" required />
+          </div>
+
+          
+          <div class="input-box">
+            <label for="imageInput">Select a team LOGO:</label>
+            <input type="file" id="team-logo" name="team-logo">
+          </div>
+        <button onclick="l()">Register</button>
+        <button onclick="m()">ADD/EDIT PLAYERS</button>
+      </form>
+    </section>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  <script>
+    function l(){
+      document.getElementById(form).submit();
+    }
+    function m(){
+      window.location.href = '/{{team.0.team_name}}/addplayers';
+    }
+  </script>
+</html>

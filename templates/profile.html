@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="/static/register/css/register.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  </head>
+  <style>
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgb(130, 106, 251);
+  }
+  .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    max-width: 900px;
+}
+.container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+  max-width: 900px;
+}
+  </style>
+  <body>
+
+
+    <div class="msg" style="position:absolute;top:0px;left:0px;width:100%">
+      {% if messages %}  
+      {% for message in messages %}
+        <div style="
+          position: absolute;
+          top: 0px;
+          z-index: 1;
+          width:100%;
+      "{% if message.tags %} class="alert alert-warning alert-dismissible fade show {{ message.tags }}"role="alert"{% endif %}>
+          {{ message }}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      {% endfor %}
+    {% endif %}
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section class="container">
+      <header>CREATE YOUR PROFILE</header>
+      <form action="" class="form" id="form" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="input-box">
+          <label>FIRST NAME</label>
+          <input type="text" placeholder="first name" id="first-name" name="first-name" required />
+        </div>
+        <div class="input-box">
+            <label>LAST NAME</label>
+            <input type="text" placeholder="last name" id="last-name" name="last-name" required />
+          </div>
+
+          <div class="input-box">
+            <label>YOUR AGE IN YEARS</label>
+            <input type="number" id="age" name="age" min="0" step="1">
+          </div>
+          <br>
+          <label>occupation</label>
+          <div class="select-box">
+            <select id="occupation" name="occupation">
+              <option hidden>user occupation</option>
+              <option value="student">Student</option>
+              <option value="buisnessman">Buisnessman</option>
+              <option value="professor">Professor</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="input-box">
+            <label for="imageInput">upload your Image:</label>
+            <input type="file" id="image" name="image">
+          </div>
+        <button onclick="l()">SAVE DETAILS</button>
+      </form>
+    </section>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  <script>
+    function l(){
+      document.getElementById(form).submit();
+    }
+
+  </script>
+</html>

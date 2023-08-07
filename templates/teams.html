@@ -1,0 +1,225 @@
+{% extends 'base.html' %}
+{% block title %}teams{% endblock title %}
+{% block style %}
+<style>
+    .cont{
+        background-color:black;
+        z-index:2;
+    }
+    *{
+        background-color: 
+    }
+    .imgtop{
+        background: url('https://www.iplt20.com/assets/images//teams-new-landing-bg.jpg');
+        z-index:1;
+        background-repeat: no-repeat;
+    height: 500px;
+    background-size: cover;
+    background-repeat:no-repeat;
+        width:100%;
+    }
+    .center img{
+        background-color:black;
+    }
+    .left{
+        background-color:black;
+    }
+    .item{
+        background-color:black;
+    }
+    .item a{
+        background-color:black;
+    }
+    .items{
+        background-color:black;
+    }
+    .teamscontainer{
+        width: 100%;
+float: left;
+display: flex;
+flex-flow: row wrap;
+justify-content: center;
+background: transparent;
+margin-top:90px;
+}
+        
+    
+    .teamco{
+        background: transparent;
+        display:flex;
+        flex-direction:column;
+        height:360px;
+        width:250px;
+        margin:40px;
+        color:white;
+        text-align:center;
+    }
+    .teamco img{
+        background:transparent;
+        height:300px;
+        width:250px;
+    }
+    .teamco h2{
+        background-color:white;
+        color:black;
+        margin-top:-15px;
+        height:54px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+    }
+    .lo img{
+        width:300px;
+        background: transparent;
+        height:150px;
+    }
+    .lo{
+        background: transparent;
+    }
+    .harrylogo{
+        width:100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: -329px;
+    background: transparent;
+    }
+    .harrylogo{
+        width:100%;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+    }
+    .harrylogo img{
+        width:296px;
+        height:214px;
+        background:transparent;
+    }
+    .teamscontainer::before{
+        content:"";
+        position:absolute;
+        top:0px;
+        left:0px;
+        height:100vh;
+        width:100%;
+        background: url('https://images.ctfassets.net/usf1vwtuqyxm/71J6YPxNauhFABbjHpGluJ/631bd6980b0a430d5b476ef331abb2b5/release_1_hogwarts.png');
+        z-index:-1;
+        background-size:cover;
+        background-repeat:no-repeat;
+        opacity:0.75;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        color: #1e1e1e;
+        margin-top: 0px;
+        margin-bottom: 0px;
+        font-size: 22px;
+        font-weight: 700;
+    }
+    .teamco h2 {
+        background-color: white;
+        color: black;
+        margin-top: -30px;
+        height: 44px;
+        color: #cfdb16e0;
+        background-color:#032150;
+        display: flex;
+        align-items: center;
+        border-bottom-left-radius: 18px;
+        border-bottom-right-radius: 18px;
+        justify-content: center;
+    }
+
+    .header-area .main-nav ul.nav {
+        border-radius: 0px 0px 25px 25px;
+        flex-basis: 100%;
+        background-color: black;
+        margin-top: 30px;
+        justify-content: right;
+        -webkit-transition: all 0.3s ease 0s;
+        -moz-transition: all 0.3s ease 0s;
+        -o-transition: all 0.3s ease 0s;
+        transition: all 0.3s ease 0s;
+        position: relative;
+        z-index: 999;
+    }
+    .teamco img {
+        background: transparent;
+        height: 300px;
+        background-color: black;
+        width: 250px;
+    }
+    .header-area .main-nav ul.nav {
+        border-radius: 0px 0px 25px 25px;
+        flex-basis: 100%;
+        background-color: transparent;
+        margin-top: 30px;
+        justify-content: right;
+        -webkit-transition: all 0.3s ease 0s;
+        -moz-transition: all 0.3s ease 0s;
+        -o-transition: all 0.3s ease 0s;
+        transition: all 0.3s ease 0s;
+        position: relative;
+        z-index: 999;
+    }
+    @media(max-width:850px){
+        #menu a {
+            margin-top: 6px;
+            margin-right: 131px;}
+    }
+
+    @media(max-width:830px){
+        *{
+            background-color:transparent;
+        }
+        #menu a {
+            margin-top: -2px;
+            margin-right: 131px;
+        }
+        .header-area .main-nav ul.nav {
+    border-radius: 0px 0px 25px 25px;
+    flex-basis: 100%;
+    background-color: transparent;
+    margin-top: 30px;
+    justify-content: right;
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    position: relative;
+    z-index: 999;
+}
+        .teamscontainer::before{
+            content:"";
+            position:absolute;
+            top:0px;
+            left:0px;
+            height:100vh;
+            width:100%;
+            background: url('https://images.ctfassets.net/usf1vwtuqyxm/71J6YPxNauhFABbjHpGluJ/631bd6980b0a430d5b476ef331abb2b5/release_1_hogwarts.png');
+            z-index:-1;
+            background-size:cover;
+            background-repeat:no-repeat;
+            opacity:0.8;
+        }
+        
+    }
+       
+</style>{% endblock style %}
+{% block body %}    
+    <div class="teamscontainer">
+        {% for i in team %}
+        <div class="teamco" onclick="team('/AllTeams/{{i.team_name}}')">
+            <img style="width:250px;height:284px; border-radius:18px;" src="/media/{{i.teams_image}}" alt="" srcset="">
+            <h2>{{i.team_name}}</h2>
+        </div>
+        {% endfor %}
+    </div>
+    
+{% endblock body %}
+{% block script %}
+<script>
+    function team(a){
+        window.location.href = a;
+    }
+</script>
+{% endblock script %}

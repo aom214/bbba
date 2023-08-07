@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="/static/register/css/register.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  </head>
+  <style>
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgb(130, 106, 251);
+  }
+  .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    max-width: 900px;
+}
+.container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+  max-width: 900px;
+  margin-top: 110px;
+}
+  </style>
+  <body>
+    <section class="container">
+      <header>ADD YOUR PLAYER</header>
+      <form action="" class="form" id="form" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="input-box">
+          <label>PLAYER NAME</label>
+          <input type="text" placeholder="Player name" id="player-name" name="player-name" required />
+        </div>
+        <br>
+        <label>PLAYER TYPE </label>
+          <div class="select-box">
+            <select id="player-type" name="player-type">
+              <option hidden>player type</option>
+              <option value="keeper">Keeper</option>
+              <option value="beater">Beater</option>
+              <option value="seeker">Seeker</option>
+              <option value="chaser">Chaser</option>
+            </select>
+          </div>
+          <div class="input-box">
+            <label for="imageInput">Player Image:</label>
+            <input type="file" id="player-image" name="player-image" >
+          </div>
+        <button onclick="l()">ADD PALYER</button>
+      </form>
+    </section>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  <script>
+    function l(){
+      document.getElementById(form).submit();
+    }
+  </script>
+</html>

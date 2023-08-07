@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>Eflyer</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- bootstrap css -->
+      <link rel="stylesheet" type="text/css" href="/static/shop/css/bootstrap.min.css">
+      <!-- style css -->
+      <link rel="stylesheet" type="text/css" href="/static/shop/css/style.css">
+      <!-- Responsive-->
+      <link rel="stylesheet" href="/static/shop/css/responsive.css">
+      <link rel="stylesheet" href="/static/shop/css/swiper-bundle.min.css">
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="/static/shop/css/sta.css">
+      <!-- fevicon -->
+      <link rel="icon" href="images/fevicon.png" type="image/gif" />
+      <!-- Scrollbar Custom CSS -->
+      <link rel="stylesheet" href="/static/shop/css/jquery.mCustomScrollbar.min.css">
+      <!-- Tweaks for older IEs-->
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+      <!-- fonts -->
+      <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+      <!-- font awesome -->
+      <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      <!--  -->
+      <!-- owl stylesheets -->
+      <link href="https://fonts.googleapis.com/css?family=Great+Vibes|Poppins:400,700&display=swap&subset=latin-ext" rel="stylesheet">
+      <link rel="stylesheet" href="/static/shop/css/owl.carousel.min.css">
+      <link rel="stylesheet" href="/static/shop/css/upcomingstyle.css">
+      <link rel="stylesoeet" href="/static/shop/css/owl.theme.default.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+      <link rel="stylesheet" href="/static/assets/css/animate.css">
+      <style>
+
+          .text{
+            text-align:center;
+            color:black;
+            font-size:38px;
+            font-weight:bold;
+          }
+        .prodprice{
+         justify-content:center;
+         text-align:center;
+         color:black;
+         display:flex;
+         height:20px;
+         font-size:18px;
+         align-items: center;
+        }
+        .prodprice p{
+         font-size:20px;
+         font-weight:bold;
+         margin-right:6px;
+        }
+       .card img {
+         width:88%;
+         border-radius:50px;
+         height: 260px;
+         border-radius:0px;
+     }
+     .price_text {
+      width: 100%;
+      font-size: 18px;
+      font-family:bold;
+      color: #f26522;
+      margin-right: 56px;
+      text-align: center;
+      margin-bottom: 30px;
+      margin-top: 30px;
+  }
+  p {
+   font-weight: 1000;
+   font-size: 15px;
+   line-height: 24px;
+}
+
+
+      </style>
+   </head>
+   <body>
+        <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+   <div class="preloader-inner">
+     <span class="dot"></span>
+     <div class="dots">
+       <span></span>
+       <span></span>
+       <span></span>
+     </div>
+   </div>
+ </div>
+ <!-- ***** Preloader End ***** -->
+      <!-- banner bg main start -->
+      <div class="banner_bg_main">
+         <!-- header top section start -->
+         <div class="container">
+            <div class="header_section_top">
+               <div class="row">
+                  <div class="col-sm-12">
+                     <div class="custom_menu">
+                        <ul>
+                           <li><a href="#"></a></li>
+                           <li><a href="#"></a></li>
+                           <li><a href="#"></a></li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- header top section start -->
+         <!-- logo section start -->
+         <div class="logo_section" >
+            <div class="container">
+               <div class="row" >
+                  <div class="col-sm-12" >
+                     <div class="logo"><a href="index.html"><img src=""></a></div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- logo section end -->
+         <!-- header section start -->
+         <div class="header_section">
+            <div class="container">
+               <div class="containt_main">
+                  <div id="mySidenav" class="sidenav">
+                     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                     <a href="/">Home</a>
+                     <a href="cart/">CART</a>
+                  </div>
+                  <span class="toggle_icon" onclick="openNav()"><img src="/static/images/toggle-icon.png"></span>
+                  <div class="dropdown">
+                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All Category 
+                     </button>
+                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        {% for z in category %}
+                        <a class="dropdown-item" href="#{{z.name}}">{{z.name}}</a>
+                        {% endfor %}
+                     </div>
+                  </div>
+                  <div class="main">
+                     <!-- Another variation with a button -->
+                     <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search this blog">
+                        <div class="input-group-append">
+                           <button class="btn btn-secondary" type="button" style="background-color: #f26522; border-color:#f26522 ">
+                           <i class="fa fa-search"></i>
+                           </button>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="header_box">
+                     <div class="login_menu">
+                        <ul>
+                           <li><a href="cart/">
+                              <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                              <span class="padding_10">Cart</span></a>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- header section end -->
+         <!-- banner section start -->
+         <div class="banner_section layout_padding">
+            <div class="container">
+               <div id="my_slider" class="carousel slide" data-ride="carousel">
+                  <div class="carousel-inner">
+                     <div class="carousel-item active">
+                        <div class="row">
+                           <div class="col-sm-12">
+                              <h1 class="banner_taital">Get Start <br>Your favriot shoping</h1>
+                              <div class="buynow_bt"><a href="#{{category.0.name}}">Buy Now</a></div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="carousel-item">
+                        <div class="row">
+                           <div class="col-sm-12">
+                              <h1 class="banner_taital">SHOP FROM<br>HARRY POTTER COLLECTIONS</h1>
+                              <div class="buynow_bt"><a href="#">Buy Now</a></div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="carousel-item">
+                        <div class="row">
+                           <div class="col-sm-12">
+                              <h1 class="banner_taital">BUY OUR<br>EXICITING SPORTS EQUIPTEMENTS</h1>
+                              <div class="buynow_bt"><a href="#">Buy Now</a></div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <a class="carousel-control-prev" href="#my_slider" role="button" data-slide="prev">
+                  <i class="fa fa-angle-left"></i>
+                  </a>
+                  <a class="carousel-control-next" href="#my_slider" role="button" data-slide="next">
+                  <i class="fa fa-angle-right"></i>
+                  </a>
+               </div>
+            </div>
+         </div>
+         <!-- banner section end -->
+      </div>
+      <!-- banner bg main end -->
+      <!-- fashion section start -->
+      <br>
+      <br>
+
+
+
+
+
+
+{% for i in category %}
+<div class="text" >
+   {{i.name}}
+ </div>
+<div class="slide-container swiper" id="{{i.name}}" >
+   <div class="slide-content {{i.name}}">
+       <div class="card-wrapper swiper-wrapper">
+         {% for j in product %}
+         {% if j.product_category == i %}
+           <div class="card swiper-slide">
+            <div class="card-content">
+               <img style="border-radius:12px;"src="/media/{{j.product_image}}" class="card-img-top" alt="Fissure in Sandstone"/>
+               <div class="card-body">
+               <h3 style="color:black;font-family:bold;font-size:34px" class="card-title">{{j.product_name}}</h3>
+               <p class="price_text "style="margin:0px;margin-top:30px;margin-bottom:40px">Price  <span style="color: #262626;">$ 30</span></p>
+               <div class="btn_main">
+                  <div class="buy_bt"><a href="/shop/{{j.product_category}}/{{j.id}}">Buy Now</a></div>
+                  <div class="seemore_bt"><a href="/shop/{{j.product_category}}/{{j.id}}">See More</a></div>
+               </div>
+            </div>
+           </div>
+               
+
+           </div>
+         {% endif %}
+         {% endfor %}
+       </div>
+   </div>
+
+   <div class="swiper-button-next swiper-navBtn next-button-{{i.name}}" ></div>
+   <div class="swiper-button-prev swiper-navBtn prev-button-{{i.name}}"></div>
+   <div class="swiper-pagination"></div>
+</div>
+{% endfor %}
+
+
+
+
+
+
+
+
+
+      <!-- jewellery  section end -->
+      <!-- footer section start -->
+      <div class="footer_section layout_padding">
+         <div class="container">
+            <div class="footer_menu">
+               <ul>
+                  <li><a href="#">THANKS FOR SHOPPING AT US</a></li>
+               </ul>
+            </div>
+            <div class="location_main">Help Line  Number : <a href="#">+1 1800 1200 1200</a></div>
+         </div>
+      </div>
+      <!-- footer section end -->
+      <!-- copyright section start -->
+
+      <!-- copyright section end -->
+      <!-- Javascript files-->
+      <script src="/static/shop/javascript/jquery.min.js"></script>
+      <script src="/static/shop/javascript/popper.min.js"></script>
+      <script src="/static/shop/javascript/bootstrap.bundle.min.js"></script>
+      <script src="/static/shop/javascript/jquery-3.0.0.min.js"></script>
+      <script src="/static/shop/javascript/plugin.js"></script>
+      <!-- sidebar -->
+      <script src="/static/shop/javascript/jquery.mCustomScrollbar.concat.min.js"></script>
+      <script src="/static/shop/javascript/upcomingscript.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+      <!-- Swiper JS -->
+    <script src="/static/shop/javascript/swiper-bundle.min.js"></script>
+<script>
+{% for slider in category %}
+var swiper = new Swiper(".{{slider}}", {
+   slidesPerView: 3,
+   spaceBetween: 40,
+   loop: true,
+   centerSlide: 'true',
+   fade: 'true',
+   grabCursor: 'true',
+   pagination: {
+     el: ".swiper-pagination",
+     clickable: true,
+     dynamicBullets: true,
+   },
+   navigation: {
+     nextEl: ".next-button-{{slider.name}}",
+     prevEl: ".prev-button-{{slider.name}}",
+   },
+
+   breakpoints:{
+       0: {
+           slidesPerView: 1,
+       },
+       520: {
+           slidesPerView: 2,
+       },
+       950: {
+           slidesPerView: 3,
+       },
+   },
+ });
+{% endfor %}
+
+
+function openNav() {
+   document.getElementById("mySidenav").style.width = "250px";
+ }
+ 
+ function closeNav() {
+   document.getElementById("mySidenav").style.width = "0";
+ }
+</script>
+<script src="/static/vendor/jquery/jquery.min.js"></script>
+<script src="/static/vendor/bootstrap/js/bootstrap.min.js"></script>
+<script src="/static/assets/js/isotope.min.js"></script>
+<script src="/static/assets/js/owl-carousel.js"></script>
+<script src="/static/assets/js/counter.js"></script>
+<script src="/static/assets/js/custom.js"></script>
+<script src="/static/assets/js/carousel.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+   </body>
+</html>

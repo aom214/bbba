@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CART</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/cartpage/css/cart.css">
+    <link rel="stylesheet" href="/static/assets/css/animate.css">
+  </head>
+  <body>
+      <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+      <!-- cart + summary -->
+      <section class="bg-light my-5">
+        <div class="container">
+          <div class="row">
+            <!-- cart -->
+            <div class="col-lg-9">
+              <div class="card border shadow-0">
+                <div class="m-4">
+                  <h4 class="card-title mb-4">Your ticket counter</h4>
+                  {% if cart %}
+                  {% for c in cart %}
+                  <div class="row gy-3">
+                    <div class="col-lg-5">
+                      <div class="me-lg-5">
+                        <div class="d-flex">
+                          <img src="/media/{{c.match_unique_name.match_image}}" class="border rounded me-3" style="width: 96px; height: 96px;" />
+                          <div class="" style="text-align:center">
+                            <a href="#" class="nav-link">{{c.match_unique_name.match_unique_name}}</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-2 col-sm-6 col-6 d-flex flex-row flex-lg-column flex-xl-row text-nowrap">
+                      <div class="">
+                        <form id="{{c.match_unique_name.match_unique_name}}" action="" method="post">
+                          {% csrf_token %}
+                            <input style="width:60px ;margin-right:20px;" id="cartadddelete{{c.match_unique_name.match_unique_name}}" oninput="submitForm('{{c.match_unique_name.match_unique_name}}')" type = "number" min = "1" value = "{{c.quantity}}" name="quantity">
+                            <input style="display:none" value="{{c.id}}" type="text"  name="productid">
+                          </form>
+                      </div>
+                      <div class="">
+                        <text class="h6">RS {{c.priceofmatch}}</text> <br />
+                        <small class="text-muted text-nowrap"> RS{{c.match_unique_name.match_price}} / per ticket </small>
+                      </div>
+                    </div>
+                    <div class="col-lg col-sm-6 d-flex justify-content-sm-center justify-content-md-start justify-content-lg-center justify-content-xl-end mb-2">
+                      <div class="float-md-end">
+                        <a href="/delete/{{c.match_unique_name.id}}" class="btn btn-light border text-danger icon-hover-danger"> Remove</a>
+                      </div>
+                    </div>
+                  </div>
+                  {% endfor %}
+                  {% else %}
+                  <h2 class="click">Your ticket counter is empty add tickets</h2>
+                  <h2 class="click"> Click here to go to home page</h2>
+                  <div class="click">
+                    <a href="/" class="btn btn-light border text-danger icon-hover-danger"> CLICK HERE</a>
+                  </div>
+                  {% endif %}
+                </div>
+      
+                
+              </div>
+            </div>
+            <!-- cart -->
+            <!-- summary -->
+            <div class="col-lg-3">
+              <div class="card shadow-0 border">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between">
+                    <p class="mb-2">Total price before TAX:</p>
+                    <p class="mb-2">{{total_price}}</p>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                    <p class="mb-2">TAX:</p>
+                    <p class="mb-2">RS {{total_tax}}</p>
+                  </div>
+                  <hr />
+                  <div class="d-flex justify-content-between">
+                    <p class="mb-2">Total price after TAX:</p>
+                    <p class="mb-2 fw-bold">RS {{price_includes_tax}}</p>
+                  </div>
+      
+                  <div class="mt-3">
+                    <a href="#" class="btn btn-success w-100 shadow-0 mb-2"> Make Purchase </a>
+                    <a href="#" class="btn btn-light w-100 border mt-2" onclick="s()"> Back to home </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- summary -->
+          </div>
+        </div>
+      </section>
+      <!-- cart + summary -->
+    
+      
+    
+      <script>
+      function submitForm(name) {
+        document.getElementById(name).submit();
+      }
+      function s(){
+        window.location.href = "/"
+      }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  </body>
+</html>

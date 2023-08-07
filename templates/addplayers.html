@@ -1,0 +1,234 @@
+{% extends 'base.html' %}
+{% block title %} players{% endblock title %}
+{% block style %}
+<style>
+    .imgtop{
+        background-image:url('https://www.iplt20.com/assets/images/team-squad-bg.svg');
+        background-size:cover;
+        background-repeat:no-repeat;
+        height:500px;
+        width:100%;
+    }
+    .mainimg img {
+        height: 200px;
+        width: 200px;
+        border-radius: 20px;
+    }
+    .imgdown{
+        background-color: #f0f2f8;
+        background-image:url('https://www.iplt20.com/assets/images/bottom-section-bg.svg');
+        background-size:cover;
+        background-repeat:repeat-y;
+        height:calac(100%+500px);
+        margin-top:92px;
+    }
+    .mainteam{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+    margin-top: -370px;
+    margin-bottom: 79px;
+
+    }
+        .team-detail-text p {
+    width: 100%;
+    margin: 0;
+    padding: 11px 15px 8px;
+    display: flex;
+    gap:2%;
+    font-size: 18px;
+    border-bottom: 2px solid #031945;
+    color: #fff;
+    letter-spacing: 1px;
+}
+.team-detail-text {
+    width: 90%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    background: #112a5c;
+    border-radius: 10px;
+    overflow: hidden;
+    font-family: bebas_neueregular;}
+    .mainimg{
+        margin-left:10%;
+    }
+    .mainimg img{
+        height:200px;
+        width:200px;
+    }
+    .playerscontainer{
+        width: 100%;
+float: left;
+display: flex;
+flex-flow: row wrap;
+justify-content: center;
+background: transparent;
+margin-top:90px;
+}
+    .teamco{
+        background: transparent;
+        display:flex;
+        flex-direction:column;
+        height:340px;
+        width:250px;
+        margin:40px;
+        color:white;
+        text-align:center;
+    }
+    .teamco img{
+        background:transparent;
+        height:300px;
+        width:250px;
+    }
+    .teamco h2{
+        display:flex;
+        align-items:center;
+        color:black;
+        justify-content:center;
+    }
+    .mainimg img{
+        margin:0px;
+        height:250px;
+        width:250px;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        color: #1e1e1e;
+        margin-top: -100px;
+        margin-bottom: 0px;
+        font-weight: 500;
+        margin-top: 60px;
+        margin-bottom: -48px;
+    }
+    .teamco h2 {
+        display: flex;
+        align-items: center;
+        margin-top: -108px;
+        height: 42px;
+        background-color: #d06b42;
+        color: black;
+        justify-content: center;
+    }
+    .button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .button button{
+        width:150px;
+        height:40px;
+        background-color:#5cc51ad6;
+    }
+
+    @media (max-width:850px){
+        .team-detail-text p {
+            display:none;
+        }
+        .mainteam {
+            display: flex;
+            width: 100%;
+            align-items: center; 
+            justify-content: center; 
+            margin-top: -384px;
+            margin-bottom: 92px;
+            padding-left:45%;
+        }
+        .mainimg{
+            width:100%;
+            display:flex;
+            align-items:center:
+            justify-content:center;
+        }
+        .mainimg img{
+            margin:0px;
+        }
+    }
+</style>
+{% endblock style %}
+{% block body %}
+<div class="imgtop">
+
+</div>
+<div class="mainteam">
+    <div class="mainimg">
+        <img src="/media/{{team.0.teams_image}}" alt="team logo" srcset="">
+    </div>
+    <div class="col-12 col-md-6 col-lg-6">  
+        <div class="team-detail-text">  
+            <p><span style="color:gold;font-weight:bold">Owner   -</span> <b></b> {{team.0.team_name}}</p>
+            <p><span style="color:gold;font-weight:bold">Coach   -</span> <b></b> {{team.0.team_coach}}</p>
+            <p><span style="color:gold;font-weight:bold">Home Venue   -</span> <b></b> {{team.0.team_home}}</p>
+            <p><span style="color:gold;font-weight:bold">Captain -</span> <b></b> {{team.0.team_captain}}</p>
+              
+        </div> 
+    </div>
+</div>
+<div class="button" >
+    <button onclick="keapers()"> Add Players</button>
+    <button onclick="k()" style="margin-left:20px"> SEE YOUR TEAM</button>
+</div>
+<div class="imgdown">
+    <h1 style="margin-top:-91px;">CHASER</h1>
+    <div class="playerscontainer">
+        {% for i in players %}
+        {% if i.players_type == "chaser" %}
+        <div class="teamco">
+            <a href="/deleteplayer/{{team.0.team_name}}/{{i.id}}" style="margin-bottom:-20px;font-size:18px; font-weight:500;background-color:red;z-index:100;border:0px;">delete</a>
+            <img src="/media/{{i.player_image}}" alt="" srcset="">
+            <h2 style="margin-top:-18px;">{{i.player_name}}</h2>
+        </div>
+        {% endif %}
+        {% endfor %}
+        
+    </div>
+    <h1>KEAPERS</h1>
+    <div class="playerscontainer">
+        {% for i in players %}
+        {% if i.players_type == "keeper" %}
+        <div class="teamco">
+            <a href="/deleteplayer/{{team.0.team_name}}/{{i.id}}" style="margin-bottom:-20px;font-size:18px; font-weight:500;background-color:red;z-index:100;border:0px;">delete</a>
+            <img src="/media/{{i.player_image}}" alt="" srcset="">
+            <h2 style="margin-top:-18px;">{{i.player_name}}</h2>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <h1>BEATERS</h1>
+    <div class="playerscontainer">
+        {% for i in players %}
+        {% if i.players_type == "beater" %}
+        <div class="teamco">
+            <a href="/deleteplayer/{{team.0.team_name}}/{{i.id}}" style="margin-bottom:-20px;font-size:18px; font-weight:500;background-color:red;z-index:100;border:0px;">delete</a>
+            <img src="/media/{{i.player_image}}" alt="" srcset="">
+            <h2 style="margin-top:-18px;">{{i.player_name}}</h2>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <h1>SEEKERS</h1>
+    <div class="playerscontainer">
+        {% for i in players %}
+        {% if i.players_type == "seeker" %}
+        <div class="teamco">
+            <a href="/deleteplayer/{{team.0.team_name}}/{{i.id}}" style="margin-bottom:-20px;font-size:18px; font-weight:500;background-color:red;z-index:100;border:0px;">delete</a>
+            <img src="/media/{{i.player_image}}" alt="" srcset="">
+            <h2 style="margin-top:-18px;">{{i.player_name}}</h2>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <h1 style="font-size:1px;">.</h1>
+</div>
+
+{% endblock body %}
+{% block script %}
+<script>
+function keapers(){
+    window.location.href = "/addplayerform/{{team.0.team_name}}"
+}
+function k(){
+    window.location.href="/AllTeams/{{team.0.team_name}}"
+}
+</script>
+{% endblock script %}
+

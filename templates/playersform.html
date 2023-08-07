@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="/static/register/css/register.css" />
+  </head>
+  <style>
+    .data{
+        display:flex;
+        height:80px;
+        background-color:#19ce4c;
+        font-size:20px;
+        padding:18px;
+        font-weight:400;
+        margin:0px;
+        top:0px;
+        align-items:center;
+        justify-content:space-between;
+        width:100%;
+        margin-bottom:20px;
+    }
+    *{
+        padding:0px;
+        margin:0px;
+    }
+    body{
+        flex-direction: column;
+        padding:0px;
+        margin:0px;
+        min-height:0px;
+    }
+    da{
+        min-width:100px;
+    }
+    #da-1{
+        min-width:160px;
+    }
+  </style>
+  <body>
+    <div class="data">
+        <div class="da" id="da-1">Total players: 1</div>
+        <div class="da" id="da-2">seeker: 1</div>
+        <div class="da" id="da-3">beater: 1</div>
+        <div class="da" id="da-4">chaser: 1</div>
+        <div class="da" id="da-5">keeper: 1</div>
+    </div>
+    <section class="container">
+      <header>REGISTER PLAYER NO :- 1 </header>
+      <form action="" class="form" id="form" method="POST">
+        {% csrf_token %}
+        <div class="input-box">
+          <label>PLAYER NAME</label>
+          <input type="text" placeholder="Player Name" id="player-name" name="player-name" required />
+        </div>
+        <div class="input-box">
+            <label>PLAYER AGE</label>
+            <input type="integer" placeholder="Enter player age" id="player-age" name="player-age" required />
+          </div>
+          <br>
+          <label>PLAYER TYPE </label>
+          <div class="select-box">
+            <select id="prelocation" name="prelocation">
+              <option hidden>player type</option>
+              <option value="America">Keeper</option>
+              <option value="Japan">Beater</option>
+              <option value="India">Seeker</option>
+              <option value="Nepal">Chaser</option>
+            </select>
+          </div>
+          <div class="input-box">
+            <label for="imageInput">Player Image:</label>
+            <input type="file" id="team-logo" name="team-logo" accept="image/*">
+          </div>
+        <button onclick="l()">Save and add second player</button>
+      </form>
+    </section>
+  </body>
+  <script>
+    function l(){
+      document.getElementById(form).submit();
+    }
+  </script>
+</html>
